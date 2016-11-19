@@ -5,6 +5,15 @@ let express = require('express'),
     mongoose = require('mongoose'),
     lists = require('./list/list.controller');
 
+mongoose.connect(process.env.DATABASE_URL, (err, database) => {
+    if (err) {
+        console.log(`ERROR connecting to MongoDB database at ${process.env.DATABASE_URL}.`);
+        console.log(`Reported error is: ${err}`);
+    } else {
+        console.log('Successfully connected to database');
+    }
+});
+
 //Allow Cross origin requests so we can access our api from any where!
 app.use(cors());
 app.use(bodyParser.json());
