@@ -1,7 +1,7 @@
-var express = require('express'),
+let express = require('express'),
  listRouter = express.Router(),
  List = require('./list.model');
 
-listRouter.get('/', function(req, res) {
+listRouter.get('/', (req, res) => {
     res.send('Lists!');
 });
