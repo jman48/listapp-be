@@ -2,10 +2,13 @@ var express = require('express'),
     app = express(),
     cors = require('cors'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    lists = require('./list/list.controller');
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use('/lists', lists);
 
 app.get('/', function(req, res) {
     res.send('Welcome from List App API');
