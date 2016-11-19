@@ -1,0 +1,23 @@
+{
+  "name": "listapp-be",
+  "version": "1.0.0",
+  "description": "A web service to control the syncing of items and lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "list",
+    "item",
+    "sync",
+    "cloud"
+  ],
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
+  },
+  "author": "John Armstrong",
+  "license": "ISC"
+}
