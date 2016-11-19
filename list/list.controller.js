@@ -29,6 +29,22 @@ listRouter.get('/:id', (req, res) => {
 });
 
 /**
+ * Create a single new list
+ */
+listRouter.post('/', (req, res) => {
+    let newList = new List();
+    newList.name = req.body.name;
+
+    newList.save((err) => {
+        if (!err) {
+            res.sendStatus(201);
+        } else {
+            handleError(err, res);
+        }
+    });
+});
+
+/**
  * A generic error handler. Will log error and return status 500
  */
 function handleError(err, res) {
