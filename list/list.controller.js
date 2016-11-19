@@ -3,6 +3,19 @@ let express = require('express'),
  List = require('./list.model');
 
 /**
+ * Get all lists
+ */
+listRouter.get('/', (req, res) => {
+    List.find({}, (err, lists) => {
+        if (!err) {
+            res.json(lists);
+        } else {
+            handleError(err, res);
+        }
+    })
+});
+
+/**
  * Get a single list by id
  */
 listRouter.get('/:id', (req, res) => {
