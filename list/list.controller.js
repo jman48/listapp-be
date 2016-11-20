@@ -72,3 +72,5 @@ function handleError(err, res) {
     //Do not send error message as we do not want to expose any internal working or our application
     res.sendStatus(500);
 }
+
+module.exports = listRouter;
