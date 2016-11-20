@@ -41,6 +41,26 @@ itemRouter.post('/', (req, res) => {
 });
 
 /**
+ * Delete a single item from a list by the items id
+ */
+itemRouter.delete('/:itemId', (req, res) => {
+    List.findByIdAndUpdate(req.params.listId,
+        //Use native mongoDB $pull method to delete from nested document
+        {
+            $pull: {
+                items: {_id: req.params.itemId}
+            }
+        },
+        (err) => {
+            if (err) {
+                return handleError(err, res);
+            }
+
+            res.sendStatus(204);
+        });
+});
+
+/**
  * A generic error handler. Will log error and return status 500
  */
 function handleError(err, res) {
