@@ -9,11 +9,11 @@ let express = require('express'),
  */
 listRouter.get('/', (req, res) => {
     List.find({}, (err, lists) => {
-        if (!err) {
-            res.json(lists);
-        } else {
-            handleError(err, res);
+        if (err) {
+            return handleError(err, res);
         }
+
+        res.json(lists);
     })
 });
 
@@ -22,11 +22,11 @@ listRouter.get('/', (req, res) => {
  */
 listRouter.get('/:id', (req, res) => {
     List.findById(req.params.id, (err, list) => {
-        if (!err) {
-            res.json(list);
-        } else {
-            handleError(err, res);
+        if (err) {
+            return handleError(err, res);
         }
+
+        res.json(list);
     })
 });
 
@@ -38,11 +38,11 @@ listRouter.post('/', (req, res) => {
     newList.name = req.body.name;
 
     newList.save((err) => {
-        if (!err) {
-            res.sendStatus(201);
-        } else {
-            handleError(err, res);
+        if (err) {
+            return handleError(err, res);
         }
+
+        res.sendStatus(201);
     });
 });
 
