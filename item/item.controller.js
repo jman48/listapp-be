@@ -1,3 +1,5 @@
+'use strict';
+
 let express = require('express'),
     itemRouter = express.Router({mergeParams: true}),
     List = require('../list/list.model'),

@@ -1,3 +1,5 @@
+'use strict';
+
 let express = require('express'),
     listRouter = express.Router(),
     List = require('./list.model');
