@@ -9,7 +9,7 @@ let express = require('express'),
  * Get all items for a list
  */
 itemRouter.get('/', (req, res) => {
-    List.findById(res.params.listId, (err, list) => {
+    List.findById(req.params.listId, (err, list) => {
         if (err) {
             return handleError(err, res);
         }
