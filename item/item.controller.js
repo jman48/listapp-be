@@ -37,7 +37,7 @@ itemRouter.post('/', (req, res) => {
             }
 
             //Item created and added to list successfully
-            res.sendStatus(201);
+            res.json(item);
         });
     });
 });
