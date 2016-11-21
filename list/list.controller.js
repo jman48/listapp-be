@@ -42,7 +42,7 @@ listRouter.post('/', (req, res) => {
             return handleError(err, res);
         }
 
-        res.sendStatus(201);
+        res.json(newList);
     });
 });
 
